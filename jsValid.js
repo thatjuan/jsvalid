@@ -89,13 +89,21 @@
         // Email
 
             // checks
-            me.isEmailAddress = function(){
+                me.isEmailAddress = function(){
 
-                var email_regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    var email_regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-                return me.isNonEmptyString( value ) && email_regex.test( value );
+                    return me.isNonEmptyString( value ) && email_regex.test( value );
 
-            };
+                };
+
+
+            // assertions
+                me.assertEmailAddress = function( error_message ){
+
+                    return assertion_result( me.isEmailAddress(), 'Email address expected' );
+
+                };
 
     };
 
